@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 8566865f4bc700a4a841fb314717b288
+guid: e675f5d8d34366e4996479320baafaa7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7499154508442906066
-    second: box_0
+      213: 5917663569247370685
+    second: RockHead_0
+  - first:
+      213: 4082086605238677207
+    second: RockHead_1
+  - first:
+      213: -8294612033912464106
+    second: RockHead_2
+  - first:
+      213: 6556718510641526582
+    second: RockHead_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: box_0
+      name: RockHead_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 1
-        width: 22
-        height: 22
+        x: 4
+        y: 4
+        width: 34
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +137,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2dd228f0b49521860800000000000000
-      internalID: 7499154508442906066
+      spriteID: dbd7241c9a3cf1250800000000000000
+      internalID: 5917663569247370685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockHead_1
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 4
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dea1afb32c76a830800000000000000
+      internalID: 4082086605238677207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockHead_2
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 4
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61d97f84d4e93ec80800000000000000
+      internalID: -8294612033912464106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockHead_3
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 4
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63734071fb42efa50800000000000000
+      internalID: 6556718510641526582
       vertices: []
       indices: 
       edges: []
@@ -138,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      box_0: 7499154508442906066
+      RockHead_0: 5917663569247370685
+      RockHead_1: 4082086605238677207
+      RockHead_2: -8294612033912464106
+      RockHead_3: 6556718510641526582
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

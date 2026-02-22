@@ -8,6 +8,7 @@ public class playerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 2.5f;
     [SerializeField] private float wallSlidingSpeed = 0.5f;
     [SerializeField] private float jumpForce = 9f;
+    [SerializeField] private float wallJumpForce = 3f;
     [SerializeField] private LayerMask lmGround;
     [SerializeField] private LayerMask lmWall;
 
@@ -31,7 +32,7 @@ public class playerController : MonoBehaviour
 
     // Variable wallJump
     private float wallJumpTimer;
-    private float wallJumpForce = 4.5f;
+    
     private Vector2 wallJumpDirection = new Vector2(1f, 1.5f);
     private float wallJumpDuration = 0.2f;
     private bool isWallJumping;
