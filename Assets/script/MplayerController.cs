@@ -134,7 +134,7 @@ public class playerController : MonoBehaviour
 
     private void WallJump()
     {
-        isWallSliding = false ;
+        isWallSliding = false;
         isWallJumping = true;
         wallJumpTimer = wallJumpDuration;
 

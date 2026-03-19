@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Ball
   - 'CheckDown '
+  - Ground
+  - Monster
+  - CheckDown
+  - Check
+  - MainRespawn
   layers:
   - Default
   - TransparentFX

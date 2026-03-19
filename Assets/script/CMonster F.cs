@@ -20,7 +20,6 @@ public class MonsterF : MonoBehaviour
 
     private float timer;
     private Rigidbody2D rb;
-    private Animator anim;
     private GameObject Player;
 
 
@@ -28,7 +27,6 @@ public class MonsterF : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
 
         currentPoint = pointB.transform;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -66,12 +64,11 @@ public class MonsterF : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
-        {
-            anim.Play("sol", -1, 0f);
-         
+        {       
             Jump();
         }
     }
+
     private void Jump()
     {
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0); // on modifie pas le x que le y
@@ -129,11 +126,4 @@ public class MonsterF : MonoBehaviour
             currentPoint = pointB.transform;
         }
     }
-
-    /*private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(pointA.transform.position, 0.2f);
-        Gizmos.DrawWireSphere(pointB.transform.position, 0.2f);
-        Gizmos.DrawLine(pointA.transform.position, pointB.transform.position);
-    }*/
 }

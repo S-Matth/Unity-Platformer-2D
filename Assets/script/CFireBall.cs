@@ -8,10 +8,6 @@ public class FireBall : MonoBehaviour
     public float speed = 10f;
     private Rigidbody2D rb;
 
-    private bool directionFixe = false;
-    private float InitFireBallSpeed = 2f;
-    
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -30,19 +26,22 @@ public class FireBall : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    // au cas ou cela touche un objet ou joueur
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       if (collision.CompareTag("Player") || collision.CompareTag("Ground"))
-       {
+        CPlayerLife playerLife = collision.GetComponentInParent<CPlayerLife>();
+
+        // si la boule touche le player, la boule est detruite et il pert un coeur
+        if (collision.CompareTag("Player"))
+        {
+            playerLife.Damage();
+
             Destroy(gameObject);
-       }
+        }
+        else if (collision.CompareTag("Ground")) // si la boule touche le sol, elle esrt detruite
+        {
+            Destroy(gameObject);
+        }
     }
 }   
 
