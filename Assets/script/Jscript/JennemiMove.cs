@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class JennemiMove : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class JennemiMove : MonoBehaviour
     public SpriteRenderer graphics;
     private Transform target;
     private int destpoint;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,3 +31,4 @@ public class JennemiMove : MonoBehaviour
         }
     }
 }
+
