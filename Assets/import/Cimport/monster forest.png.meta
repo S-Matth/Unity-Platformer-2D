@@ -222,7 +222,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sol
+      name: monster forest_4
       rect:
         serializedVersion: 2
         x: 87
@@ -329,10 +329,10 @@ TextureImporter:
       monster forest_1: -3225346749369050877
       monster forest_2: 6511013949626733748
       monster forest_3: 1618579272703202214
+      monster forest_4: -5035912940178258044
       monster forest_5: -4212879603983633986
       monster forest_6: -1590341616936533609
       monster forest_7: -945019431595131723
-      sol: -5035912940178258044
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

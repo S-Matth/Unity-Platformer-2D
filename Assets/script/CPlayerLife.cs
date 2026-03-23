@@ -2,22 +2,22 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.U2D;
 
+/* 
+ Ajouter ce script dans Player, il va controler les degats
+*/
+
 public class CPlayerLife : MonoBehaviour
 {
-    
     public int maxLives = 5;
     public int currentLives;
 
-    private GameObject Player;
-
-    //private Vector3 CheckPointPosition;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currentLives = maxLives;
     }
-    // - un coeur a chaque fois que la fonction est appeléé
+    // - un coeur a chaque fois que la fonction est appelée
     public void Damage()
     {
         currentLives--;
@@ -40,5 +40,6 @@ public class CPlayerLife : MonoBehaviour
 
         respawn.MainRespawn();
         currentLives = maxLives;
+        //Debug.Log("5 lives");
     }
 }

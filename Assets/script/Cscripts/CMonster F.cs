@@ -1,9 +1,10 @@
-/*using System.Collections;
+using System.Collections;
 using Unity.Properties;
 using Unity.VisualScripting;
 using UnityEditor.Rendering;
-using UnityEditor.Tilemaps;*/
+using UnityEditor.Tilemaps;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MonsterF : MonoBehaviour
 {
@@ -37,23 +38,9 @@ public class MonsterF : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // verifie a chaque frame si le Player est dans sa zone
-        float distancePlayer = Vector2.Distance(transform.position, Player.transform.position);
-        Move();
-        if (distancePlayer < 2f) // s'il le Player est dans sa zone il va s'arreter, continue a sauter et attack (declenche le timer)
-        {
-            stopMoving();
+  
+        playerNear();
 
-            lookPos();
-
-            attack();
-        }
-        else // si non il bouge de gauche a droite et le timer se met a 0
-        {
-            Move();
-
-            timer = 0;
-        }
     }
 
     private void Flip()
@@ -64,7 +51,7 @@ public class MonsterF : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
-        {       
+        {      
             Jump();
         }
     }
@@ -91,6 +78,7 @@ public class MonsterF : MonoBehaviour
             Shoot();
         }
     }
+
     private void Move()
     {
         // move de gauche a droite selon le currentPoint
@@ -125,5 +113,28 @@ public class MonsterF : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
             currentPoint = pointB.transform;
         }
+    }
+
+    private void playerNear()
+    {
+        // verifie a chaque frame si le Player est dans sa zone
+        float distancePlayer = Vector2.Distance(transform.position, Player.transform.position);
+        //Move();
+        if (distancePlayer < 2f) // s'il le Player est dans sa zone il va s'arreter, continue a sauter et attack (declenche le timer)
+        {
+
+            stopMoving();
+
+            lookPos();
+
+            attack();
+        }
+        else // si non il bouge de gauche a droite et le timer se met a 0
+        {
+            Move();
+
+            timer = 0;
+        }
+       
     }
 }

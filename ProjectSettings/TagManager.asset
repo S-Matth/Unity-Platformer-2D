@@ -11,6 +11,9 @@ TagManager:
   - CheckDown
   - Check
   - MainRespawn
+  - CheckPLayer
+  - Egg
+  - Void
   layers:
   - Default
   - TransparentFX
