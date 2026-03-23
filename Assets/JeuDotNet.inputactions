@@ -28,7 +28,7 @@
                     "name": "Fire",
                     "type": "Button",
                     "id": "160619ff-dbcc-4e9d-b454-25be42854b2a",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -37,6 +37,15 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "6fc54f40-ca58-4455-b8db-59bc74369567",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Dash",
+                    "type": "Button",
+                    "id": "50bdf1ee-ae38-4137-b01d-7c0bf6a4cc22",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -283,6 +292,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "52e6a2ad-8e26-43a3-b408-bfc6ffa81545",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

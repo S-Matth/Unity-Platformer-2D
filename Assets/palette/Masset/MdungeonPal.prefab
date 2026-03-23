@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2348048799631577547}
   - component: {fileID: 4553371458565440053}
   m_Layer: 0
-  m_Name: dungeonPal
+  m_Name: MdungeonPal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

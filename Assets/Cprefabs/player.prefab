@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 6078905385939690272}
   m_Layer: 0
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -322,6 +322,7 @@ MonoBehaviour:
   wallSlidingSpeed: 0.5
   jumpForce: 4
   wallJumpForce: 3
+  tr: {fileID: 0}
   lmGround:
     serializedVersion: 2
     m_Bits: 8

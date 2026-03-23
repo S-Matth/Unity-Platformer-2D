@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -5,14 +6,14 @@ using UnityEngine.InputSystem;
 
 public class playerController : MonoBehaviour
 {
+    // Variable SerializeField (actualisable dans l'inspector)
     [SerializeField] private float moveSpeed = 2.5f;
     [SerializeField] private float wallSlidingSpeed = 0.5f;
     [SerializeField] private float jumpForce = 9f;
     [SerializeField] private float wallJumpForce = 3f;
+    [SerializeField] private TrailRenderer tr;
     [SerializeField] private LayerMask lmGround;
     [SerializeField] private LayerMask lmWall;
-
-
 
     // Variable Move
     private Rigidbody2D rb;
@@ -37,8 +38,15 @@ public class playerController : MonoBehaviour
     private float wallJumpDuration = 0.2f;
     private bool isWallJumping;
 
+    // Variable Animator
     private Animator animator;
-    
+
+    // Variable Dash
+    private bool canDash = true;
+    private bool isDashing;
+    private float dashPower = 5f;
+    private float dashDuration = 0.2f;
+    private float dashCooldown = 1f;
 
     private void Awake()
     {
@@ -49,7 +57,6 @@ public class playerController : MonoBehaviour
         wallCheck = transform.Find("WallCheck");
     }
 
-    
     private void Update()
     {
         // Sens du personnage
@@ -69,10 +76,10 @@ public class playerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(!isWallJumping) rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocityY);
+        if(isDashing) return;
+        if (!isWallJumping) rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocityY);
 
     }
-
 
     private void IsGrounded()
     {
@@ -171,5 +178,35 @@ public class playerController : MonoBehaviour
         }   
     }
 
-    
+    private IEnumerator OnDash(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            // Si le personnage ne peut pas dash ou s'il est en train de dash, on sort de la fonction
+            canDash = false;
+            isDashing = true;
+
+            // On stocke la gravité originale pour la rétablir après le dash
+            float originalGravity = rb.gravityScale;
+            rb.gravityScale = 0f;
+
+            // On applique la vitesse de dash dans la direction du personnage
+            rb.linearVelocity = new Vector2(lastXDirection * dashPower, 0f);
+
+            // On active l'effet de traînée du dash
+            tr.emitting = true;
+
+            // On attend la durée du dash
+            yield return new WaitForSeconds(dashDuration);
+
+            // On désactive l'effet de traînée et on rétablit la gravité initiale
+            tr.emitting = false;
+            rb.gravityScale = originalGravity;
+
+            // On réinitialise les variables de dash
+            isDashing = false;
+            yield return new WaitForSeconds(dashCooldown);
+            canDash = true;
+        }
+    }
 }
