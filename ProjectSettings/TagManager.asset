@@ -3,15 +3,19 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - 'CheckDown '
+  - Egg
+  - Water
+  - MainRespawn
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - wall
   - Water
   - UI
-  - 
+  - ground
   - 
   - 
   - 
