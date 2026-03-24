@@ -4,28 +4,18 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Ball
   - 'CheckDown '
-  - Ground
-  - Monster
-  - CheckDown
-  - Check
-  - MainRespawn
-<<<<<<< Updated upstream
-  - CheckPLayer
   - Egg
-  - Void
-=======
   - Water
->>>>>>> Stashed changes
+  - MainRespawn
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - wall
   - Water
   - UI
-  - wall
+  - ground
   - 
   - 
   - 
