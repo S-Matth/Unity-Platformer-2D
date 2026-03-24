@@ -2,23 +2,14 @@ using UnityEngine;
 
 public class MCanSwim : MonoBehaviour
 {
-    // Variable SerializeField (actualisable dans l'inspector) 
-    [SerializeField] private LayerMask lmWater;
-    [SerializeField] private float swimSpeed = 2f;
-    [SerializeField] private bool canSwim;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (!canSwim)
+        if (collision.CompareTag("Player"))
         {
-            PlayerRespawn respawn = GetComponentInParent<PlayerRespawn>();
+            CPlayerLife life = collision.GetComponent<CPlayerLife>();
+
+            // le joueur se noie s'il NE PEUT PAS nager
+            if (!life.canSwim) life.Die();
         }
-        
     }
 }
