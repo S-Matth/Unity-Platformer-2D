@@ -120,7 +120,7 @@ public class MonsterF : MonoBehaviour
         // verifie a chaque frame si le Player est dans sa zone
         float distancePlayer = Vector2.Distance(transform.position, Player.transform.position);
         //Move();
-        if (distancePlayer < 2f) // s'il le Player est dans sa zone il va s'arreter, continue a sauter et attack (declenche le timer)
+        if (distancePlayer < 1f) // s'il le Player est dans sa zone il va s'arreter, continue a sauter et attack (declenche le timer)
         {
 
             stopMoving();

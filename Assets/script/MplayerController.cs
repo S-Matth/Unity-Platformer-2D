@@ -131,7 +131,7 @@ public class playerController : MonoBehaviour
         animator.SetBool("isGrounded", isGrounded);
     }
 
-    private void OrientationCharactere()
+    public void OrientationCharactere()
     {
         if (moveInput.x != 0) lastXDirection = Mathf.Sign(moveInput.x);
         sp.flipX = (lastXDirection < 0);

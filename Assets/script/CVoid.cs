@@ -8,8 +8,6 @@ using UnityEngine;
 public class VoidKill : MonoBehaviour
 {
 
-    private GameObject Player;
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
  
