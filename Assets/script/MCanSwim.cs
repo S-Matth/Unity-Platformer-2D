@@ -7,9 +7,14 @@ public class MCanSwim : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             CPlayerLife life = collision.GetComponent<CPlayerLife>();
+            PlayerRespawn respawn = collision.GetComponent<PlayerRespawn>();
 
             // le joueur se noie s'il NE PEUT PAS nager
-            if (!life.canSwim) life.Die();
+            if (!life.canSwim)
+            {
+                respawn.Respawn();
+                life.Damage();
+            }
         }
     }
 }

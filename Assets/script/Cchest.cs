@@ -26,7 +26,7 @@ public class Cchest : MonoBehaviour
 
     public void OpenChest()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             anim.SetTrigger("open");
             
