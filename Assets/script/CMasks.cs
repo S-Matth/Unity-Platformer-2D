@@ -1,3 +1,4 @@
+using UnityEditor.Tilemaps;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,36 +12,26 @@ public class Masks : MonoBehaviour
 {
     public SpriteRenderer sp;
     public Cchest chest;    // appeler ici car le mask n'est pas un enfant de chest
+    public playerController player;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         sp = GetComponent<SpriteRenderer>();
+        player = GetComponentInParent<playerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        SwitchSens();
         activeMAsk();
+        // suit les mouvement du player
+        sp.flipX = player.sp.flipX;
     }
 
-    // change e sens de la masque
-    private void SwitchSens()
-    {
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
-        {
-            sp.flipX = true;
-        }
-        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-        {
-            sp.flipX = false;
-        }
-    }
-    
     private void activeMAsk()
     {
-        
+        // verifie si le coffre existe et qu'il a ete ouvert 
         if (chest != null && chest.isOpen)
         {
             sp.enabled = true;
@@ -49,6 +40,5 @@ public class Masks : MonoBehaviour
         {
             sp.enabled = false;
         }
-
     }
 }

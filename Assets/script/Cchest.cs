@@ -10,6 +10,7 @@ public class Cchest : MonoBehaviour
 {
     public Animator anim;
     public bool isOpen = false;
+    private bool ActPlayer = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,12 +22,12 @@ public class Cchest : MonoBehaviour
     void Update()
     {
         OpenChest();
-    
-    }
 
+    }
+    
     public void OpenChest()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (ActPlayer && Input.GetKeyDown(KeyCode.E))
         {
             anim.SetTrigger("open");
             
@@ -35,11 +36,19 @@ public class Cchest : MonoBehaviour
             StartCoroutine(OpenAfterDelay());
         }   
     }
-
+    
     IEnumerator OpenAfterDelay()
     {
         yield return new WaitForSeconds(2f);
         isOpen = true;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            ActPlayer = true;
+        }
+    }
 }
+

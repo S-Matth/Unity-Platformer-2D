@@ -21,7 +21,7 @@ public class playerController : MonoBehaviour
     private float lastXDirection = 1f;
 
     // Variable Jump
-    private SpriteRenderer sp;
+    public SpriteRenderer sp;
     private bool isGrounded;
     private Transform groundCheck;
     private float maxJump = 2;
