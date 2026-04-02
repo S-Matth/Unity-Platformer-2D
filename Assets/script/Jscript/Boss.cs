@@ -3,27 +3,15 @@ using System.Collections;
 
 public class Boss : MonoBehaviour
 {
-    //  Vie du boss
-    public int health = 3;
+    public int health = 3;               // Vie du boss
+    public Transform player;             // Joueur à suivre
+    public float speed = 2f;             // Vitesse horizontale réduite
+    public float jumpForce = 6f;         // Force du saut un peu plus douce
 
-    //  Joueur
-    public Transform player;
-
-    //  Vitesse horizontale
-    public float speed = 2f;
-
-    //  Force de saut
-    public float jumpForce = 8f;
-
-    //  Composants
     private Rigidbody2D rb;
     private Animator anim;
-
-    //  Pattern
     private bool isPatternRunning = false;
-
-    //  Invincibilité après Hit
-    private bool canTakeDamage = true;
+    private bool canTakeDamage = true;   // Invincibilité temporaire
 
     void Start()
     {
@@ -35,10 +23,8 @@ public class Boss : MonoBehaviour
     {
         if (player == null) return;
 
-        // Flip pour regarder le joueur
-        Flip();
+        Flip(); // Tourne vers le joueur
 
-        // Lancer le pattern si pas en cours
         if (!isPatternRunning)
         {
             StartCoroutine(SimplePattern());
@@ -58,7 +44,7 @@ public class Boss : MonoBehaviour
     void JumpToPlayer()
     {
         Vector2 direction = (player.position - transform.position).normalized;
-        rb.linearVelocity = new Vector2(direction.x * 5f, jumpForce);
+        rb.linearVelocity = new Vector2(direction.x * speed, jumpForce);
     }
 
     IEnumerator SimplePattern()
@@ -68,7 +54,7 @@ public class Boss : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             JumpToPlayer();
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.0f); // délai entre sauts
         }
 
         isPatternRunning = false;
@@ -80,7 +66,6 @@ public class Boss : MonoBehaviour
         anim.SetBool("isJumping", rb.linearVelocity.y > 0.1f);
     }
 
-    // 💥 Prendre des dégâts
     public void TakeDamage()
     {
         if (!canTakeDamage) return;
@@ -101,7 +86,7 @@ public class Boss : MonoBehaviour
 
     IEnumerator ResetDamage()
     {
-        yield return new WaitForSeconds(0.5f); // temps d'invincibilité
+        yield return new WaitForSeconds(0.5f);
         canTakeDamage = true;
     }
 
