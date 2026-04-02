@@ -14,6 +14,7 @@ public class playerController : MonoBehaviour
     [SerializeField] private TrailRenderer tr;
     [SerializeField] private LayerMask lmGround;
     [SerializeField] private LayerMask lmWall;
+ 
 
     // Variable Move
     private Rigidbody2D rb;
@@ -48,6 +49,9 @@ public class playerController : MonoBehaviour
     private float dashDuration = 0.2f;
     private float dashCooldown = 1f;
 
+    // Variable FX pour gérer les particules
+    public ParticleSystem smokeFX;
+
     private void Awake()
     {
         rb= GetComponent<Rigidbody2D>();
@@ -61,6 +65,7 @@ public class playerController : MonoBehaviour
     {
         // Sens du personnage
         OrientationCharactere();
+        HandleRunDust();
 
         // Est ce que le personnage est au sol ?
         IsGrounded();
@@ -79,6 +84,20 @@ public class playerController : MonoBehaviour
         if(isDashing) return;
         if (!isWallJumping) rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocityY);
 
+    }
+
+    private void HandleRunDust()
+    {
+        if (isGrounded && Mathf.Abs(moveInput.x) > 0.1f)
+        {
+            if (!smokeFX.isPlaying)
+                smokeFX.Play();
+        }
+        else
+        {
+            if (smokeFX.isPlaying)
+                smokeFX.Stop();
+        }
     }
 
     private void IsGrounded()
