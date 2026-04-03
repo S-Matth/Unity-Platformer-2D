@@ -32,7 +32,7 @@ public class PlayerRespawn : MonoBehaviour
     }
 
     // sauvegarde le spawn qu'il apparait la premiere fois et où il apparaitra quand il n'aura plus de vie
-    public void MainRespawn()
+    public void MainRespawn(Vector3 MainCheckpoint)
     {
         transform.position = MainCheckPoint;
         Debug.Log("Mainpos");
