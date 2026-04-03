@@ -19,7 +19,7 @@ public class CmainCheckPoint : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             collision.GetComponent<PlayerRespawn>().SetCheckPoint(transform.position);
-            collision.GetComponent<PlayerRespawn>().MainRespawn(transform.position);
+            collision.GetComponent<PlayerRespawn>().SetMainCheck(transform.position);
         }
     }
 
