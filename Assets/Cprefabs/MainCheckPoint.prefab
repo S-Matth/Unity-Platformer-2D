@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2925015213840050835}
   - component: {fileID: 3851739810664002150}
   - component: {fileID: 6392805824290696881}
-  - component: {fileID: 5080904419505745298}
   - component: {fileID: 3491160113364350905}
   m_Layer: 0
   m_Name: MainCheckPoint
@@ -130,18 +129,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &5080904419505745298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2454204119226291176}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3a0a2ed9fe0f8a408b4d107c9aceaf7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::checkpoint
 --- !u!114 &3491160113364350905
 MonoBehaviour:
   m_ObjectHideFlags: 0
