@@ -24,6 +24,12 @@ public class PlayerRespawn : MonoBehaviour
         Debug.Log("newpos");
     }
 
+    public void SetMainCheck(Vector3 MaincCheck)
+    {
+        MainCheckPoint = MaincCheck;
+        Debug.Log("newMain");
+    }
+
     // reaparait a cette position apres la void
     public void Respawn()
     {
@@ -32,7 +38,7 @@ public class PlayerRespawn : MonoBehaviour
     }
 
     // sauvegarde le spawn qu'il apparait la premiere fois et où il apparaitra quand il n'aura plus de vie
-    public void MainRespawn(Vector3 MainCheckpoint)
+    public void MainRespawn()
     {
         transform.position = MainCheckPoint;
         Debug.Log("Mainpos");
