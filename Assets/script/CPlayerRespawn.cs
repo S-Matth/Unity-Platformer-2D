@@ -15,6 +15,7 @@ public class PlayerRespawn : MonoBehaviour
     {
         CheckPointPosition = transform.position;
         MainCheckPoint = transform.position;
+
     }
     
     // mise a jour du checkpoint

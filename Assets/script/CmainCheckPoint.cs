@@ -20,6 +20,7 @@ public class CmainCheckPoint : MonoBehaviour
         {
             collision.GetComponent<PlayerRespawn>().SetCheckPoint(transform.position);
             collision.GetComponent<PlayerRespawn>().SetMainCheck(transform.position);
+            
         }
     }
 

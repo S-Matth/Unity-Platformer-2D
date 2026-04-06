@@ -6,18 +6,14 @@ using UnityEngine.SceneManagement;
 */
 public class CchangeScene : MonoBehaviour
 {
-    public bool ChangeScene;
+
     public int sceneIndex;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            ChangeScene = true;
-            if (ChangeScene)
-            {
-                SceneManager.LoadScene(sceneIndex);
-            }
+            SceneManager.LoadScene(sceneIndex);
         }
     }
 }
