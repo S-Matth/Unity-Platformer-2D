@@ -17,8 +17,8 @@ public class checkpoint : MonoBehaviour
         
         if (collision.CompareTag("Player"))
         {
-            
             collision.GetComponent<PlayerRespawn>().SetCheckPoint(transform.position);
+            
         }
     }
 }

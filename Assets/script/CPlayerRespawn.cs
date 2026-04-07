@@ -15,6 +15,7 @@ public class PlayerRespawn : MonoBehaviour
     {
         CheckPointPosition = transform.position;
         MainCheckPoint = transform.position;
+
     }
     
     // mise a jour du checkpoint
@@ -22,6 +23,12 @@ public class PlayerRespawn : MonoBehaviour
     {
         CheckPointPosition = newPosition;
         Debug.Log("newpos");
+    }
+
+    public void SetMainCheck(Vector3 MaincCheck)
+    {
+        MainCheckPoint = MaincCheck;
+        Debug.Log("newMain");
     }
 
     // reaparait a cette position apres la void
