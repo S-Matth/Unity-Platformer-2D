@@ -11,13 +11,13 @@ public class Mob_base_net: MonoBehaviour
     private bool movingRight = true;
 
     [Header("Detection")]
-    public float detectionRange = 5f;
+    public float detectionRange = 2f;
     public Transform player;
 
     [Header("Attack")]
     public GameObject fireballPrefab;
     public Transform firePoint;
-    public float fireRate = 1.5f;
+    public float fireRate = 0.5f;
     private float nextFireTime;
 
     private Rigidbody2D rb;
