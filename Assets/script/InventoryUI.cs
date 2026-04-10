@@ -1,38 +1,74 @@
-using UnityEngine;
-
-
+﻿using UnityEngine;
 using UnityEngine.UI;
+
+[System.Serializable]
+public class ItemUI
+{
+    public string itemName;
+    public Sprite icon;
+}
 
 public class InventoryUI : MonoBehaviour
 {
-    public Image[] slots; // les 3 slots UI
-    public Sprite defaultSprite; // sprite vide
+    [Header("Références")]
+    public GameObject inventoryPanel;
+    public Image[] slots;
+    public ItemUI[] itemDatabase;
+
+    private bool isOpen = false;
+
+    void Start()
+    {
+        inventoryPanel.SetActive(false);
+    }
 
     void Update()
     {
-        UpdateUI();
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            isOpen = !isOpen;
+            inventoryPanel.SetActive(isOpen);
+
+            if (isOpen)
+                UpdateUI();
+        }
     }
 
-    void UpdateUI()
+    // ✅ Appelable depuis dehors (ex: quand un item est ramassé)
+    public void UpdateUI()
     {
+        if (Inventory.instance == null)
+        {
+            Debug.LogError("Inventory.instance est null !");
+            return;
+        }
+
         for (int i = 0; i < slots.Length; i++)
         {
-            if (Inventory.instance.items[i] != null)
+            string item = Inventory.instance.items[i];
+
+            // ✅ IsNullOrEmpty, compatible avec string[]
+            if (!string.IsNullOrEmpty(item))
             {
-                slots[i].sprite = GetSpriteFromItem(Inventory.instance.items[i]);
+                slots[i].sprite = GetSprite(item);
                 slots[i].color = Color.white;
             }
             else
             {
-                slots[i].sprite = defaultSprite;
-                slots[i].color = new Color(1, 1, 1, 0); // invisible
+                slots[i].sprite = null;
+                slots[i].color = new Color(1, 1, 1, 0);
             }
         }
     }
 
-    Sprite GetSpriteFromItem(string itemName)
+    Sprite GetSprite(string itemName)
     {
-        // IMPORTANT: le sprite doit �tre dans Resources
-        return Resources.Load<Sprite>(itemName);
+        foreach (ItemUI item in itemDatabase)
+        {
+            if (item.itemName == itemName)
+                return item.icon;
+        }
+        Debug.LogWarning($"Sprite introuvable pour : {itemName}");
+        return null;
     }
 }
