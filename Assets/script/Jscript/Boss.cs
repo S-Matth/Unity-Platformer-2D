@@ -3,15 +3,16 @@ using System.Collections;
 
 public class Boss : MonoBehaviour
 {
-    public int health = 3;               // Vie du boss
-    public Transform player;             // Joueur à suivre
-    public float speed = 2f;             // Vitesse horizontale réduite
-    public float jumpForce = 6f;         // Force du saut un peu plus douce
+    public int health = 3;
+    public Transform player;
+    public float speed = 2f;
+    public float jumpForce = 6f;
+    public float aggroRange = 5f;        // Distance de détection
 
     private Rigidbody2D rb;
     private Animator anim;
     private bool isPatternRunning = false;
-    private bool canTakeDamage = true;   // Invincibilité temporaire
+    private bool canTakeDamage = true;
 
     void Start()
     {
@@ -23,11 +24,17 @@ public class Boss : MonoBehaviour
     {
         if (player == null) return;
 
-        Flip(); // Tourne vers le joueur
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
-        if (!isPatternRunning)
+        //  Le boss ne réagit que si le joueur est proche
+        if (distanceToPlayer <= aggroRange)
         {
-            StartCoroutine(SimplePattern());
+            Flip();
+
+            if (!isPatternRunning)
+            {
+                StartCoroutine(SimplePattern());
+            }
         }
 
         UpdateAnimations();
@@ -54,7 +61,7 @@ public class Boss : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             JumpToPlayer();
-            yield return new WaitForSeconds(1.0f); // délai entre sauts
+            yield return new WaitForSeconds(1.0f);
         }
 
         isPatternRunning = false;
@@ -95,5 +102,12 @@ public class Boss : MonoBehaviour
         anim.SetBool("Dead", true);
         rb.linearVelocity = Vector2.zero;
         Destroy(gameObject, 1.5f);
+    }
+
+    //  Visualiser la zone d’aggro dans Unity
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, aggroRange);
     }
 }

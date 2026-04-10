@@ -47,7 +47,7 @@ public class playerController : MonoBehaviour
     private bool isDashing;
     private float dashPower = 5f;
     private float dashDuration = 0.2f;
-    private float dashCooldown = 1f;
+    private float dashCooldown = 100f;
 
     // Variable FX pour gérer les particules
     public ParticleSystem smokeFX;
@@ -63,11 +63,13 @@ public class playerController : MonoBehaviour
 
     private void Update()
     {
-        // Sens du personnage
+        // Met à jour l’orientation du sprite
         OrientationCharactere();
+
+        // Effet de poussière lors de la course
         HandleRunDust();
 
-        // Est ce que le personnage est au sol ?
+        // Détection du sol et des murs
         IsGrounded();
         IsWalled();
 
@@ -81,13 +83,18 @@ public class playerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(isDashing) return;
-        if (!isWallJumping) rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocityY);
+        // Si le joueur dash, on ignore la physique normale
+        if (isDashing) return;
+
+        // Si le joueur n'est pas en wall jump, on applique le mouvement horizontal
+        if (!isWallJumping) 
+            rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocityY);
 
     }
-
+    
     private void HandleRunDust()
     {
+        // Active la poussière si le joueur court au sol
         if (isGrounded && Mathf.Abs(moveInput.x) > 0.1f)
         {
             if (!smokeFX.isPlaying)
@@ -102,24 +109,34 @@ public class playerController : MonoBehaviour
 
     private void IsGrounded()
     {
+        // Vérifie si le joueur touche le sol via un petit cercle
         bool wasGrounded = isGrounded;
+
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, lmGround);
-        if (isGrounded && !wasGrounded) cptJump = 0;
+
+        // Si on vient d’atterrir, on réinitialise le compteur de sauts
+        if (isGrounded && !wasGrounded) 
+            cptJump = 0;
     }
 
-    private bool IsWalled() => Physics2D.OverlapCircle(wallCheck.position, 0.05f, lmWall);
+    private bool IsWalled() => 
+        Physics2D.OverlapCircle(wallCheck.position, 0.05f, lmWall); // Détection du mur
 
     private void WallSlide()
     {
+        // Si on est en wall jump, on ne glisse pas
         if (isWallJumping)
         {
             isWallSliding = false;
             return;
         }
 
+        // Conditions du wall slide : contre un mur, en l’air, et en mouvement horizontal
         if (IsWalled() && !isGrounded && moveInput.x != 0)
         {
             isWallSliding = true;
+
+            // On limite la vitesse verticale pour créer l’effet de glissade
             rb.linearVelocity = new Vector2(rb.linearVelocityX, Mathf.Clamp(rb.linearVelocityY, -wallSlidingSpeed, float.MaxValue)); 
         }
         else
@@ -130,9 +147,12 @@ public class playerController : MonoBehaviour
 
     private void HandleWallJumpTimer()
     {
+        // Réduit le timer du wall jump
         if (isWallJumping)
         {
             wallJumpTimer -= Time.deltaTime;
+
+            // Quand le timer expire, on rend le contrôle au joueur
             if (wallJumpTimer <= 0f)
             {
                 isWallJumping = false;
@@ -142,53 +162,67 @@ public class playerController : MonoBehaviour
 
     private void GestionAnimation()
     {
-        // Animation Move
+        // Animation du déplacement
         animator.SetFloat("val_x", Mathf.Abs(moveInput.x));
 
-        // Animation Jump
+        // Animation du saut
         animator.SetFloat("val_y", rb.linearVelocityY);
         animator.SetBool("isGrounded", isGrounded);
     }
 
     public void OrientationCharactere()
     {
-        if (moveInput.x != 0) lastXDirection = Mathf.Sign(moveInput.x);
+        // Met à jour la direction du personnage selon l’input
+        if (moveInput.x != 0)
+            lastXDirection = Mathf.Sign(moveInput.x);
+
+        // Flip du sprite
         sp.flipX = (lastXDirection < 0);
 
+        // Déplace le point de détection du mur selon la direction
         wallCheck.localPosition = new Vector3(0.05f * lastXDirection, wallCheck.localPosition.y, 0);
     }
 
     private void WallJump()
     {
+        // On désactive le wall slide
         isWallSliding = false;
+
+        // On active le wall jump
         isWallJumping = true;
         wallJumpTimer = wallJumpDuration;
 
         // direction opposée au mur
         float jumpDirection = -lastXDirection;
 
+        // On applique la force du wall jump
         rb.linearVelocity = new Vector2(
             wallJumpDirection.x * jumpDirection * wallJumpForce,
             wallJumpDirection.y * wallJumpForce);
     }
 
-    private void OnMove(InputValue value) => moveInput = value.Get<Vector2>();
+    private void OnMove(InputValue value) => 
+        moveInput = value.Get<Vector2>(); // Récupère l’input du joueur
 
     private void OnJump(InputValue value)
     {
         if (value.isPressed)
         {
+            // Saut normal au sol
             if (isGrounded)
             {
                 rb.linearVelocityY = jumpForce;
                 cptJump++;
             }
 
+            // Double saut
             else if (!isGrounded && !IsWalled() && maxJump > cptJump)
             {
                 rb.linearVelocityY = jumpForce;
                 cptJump++;
             }
+
+            // Wall jump
             else if (IsWalled())
             {
                 cptJump = 2;
@@ -201,11 +235,11 @@ public class playerController : MonoBehaviour
     {
         if (value.isPressed)
         {
-            // Si le personnage ne peut pas dash ou s'il est en train de dash, on sort de la fonction
+            // Empêche le spam du dash
             canDash = false;
             isDashing = true;
 
-            // On stocke la gravité originale pour la rétablir après le dash
+            // On désactive la gravité pendant le dash
             float originalGravity = rb.gravityScale;
             rb.gravityScale = 0f;
 
@@ -223,7 +257,10 @@ public class playerController : MonoBehaviour
             rb.gravityScale = originalGravity;
 
             // On réinitialise les variables de dash
+            // Fin du dash
             isDashing = false;
+
+            // Cooldown avant de pouvoir dash à nouveau
             yield return new WaitForSeconds(dashCooldown);
             canDash = true;
         }
