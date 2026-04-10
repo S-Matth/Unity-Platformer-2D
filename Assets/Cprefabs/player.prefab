@@ -512,7 +512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab648203aa9d2e46ac2741996bfb249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CPlayerLife
-  canSwim: 0
+  canSwim: 1
   maxLives: 5
   currentLives: 0
 --- !u!120 &4192438944042116433
