@@ -47,7 +47,7 @@ public class playerController : MonoBehaviour
     private bool isDashing;
     private float dashPower = 5f;
     private float dashDuration = 0.2f;
-    private float dashCooldown = 3f;
+    private float dashCooldown = 100f;
 
     // Variable FX pour gérer les particules
     public ParticleSystem smokeFX;
