@@ -22,7 +22,6 @@ public class Cchest : MonoBehaviour
     void Update()
     {
         OpenChest();
-
     }
     
     public void OpenChest()

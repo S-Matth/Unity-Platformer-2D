@@ -11,6 +11,9 @@ TagManager:
   - Ball
   - Monster
   - CheckPLayer
+  - Ground
+  - Void
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX

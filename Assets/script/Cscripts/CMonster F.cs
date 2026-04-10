@@ -32,13 +32,18 @@ public class MonsterF : MonoBehaviour
         currentPoint = pointB.transform;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         Player = GameObject.FindGameObjectWithTag("Player");
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
-  
+        if (Player == null)
+        {
+            Player = GameObject.FindGameObjectWithTag("Player");
+            return;
+        }
         playerNear();
 
     }

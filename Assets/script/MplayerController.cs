@@ -59,6 +59,7 @@ public class playerController : MonoBehaviour
         sp = GetComponent<SpriteRenderer>();
         groundCheck = transform.Find("GroundCheck");
         wallCheck = transform.Find("WallCheck");
+
     }
 
     private void Update()

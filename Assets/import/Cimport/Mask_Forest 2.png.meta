@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d7663c58622662f4081fdd8f1dee93a9
+guid: 08e8b9314858d404aa9acff824105e3d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4625935111676555744
-    second: Mask Forest_0
+      213: -1498110695083414203
+    second: Mask_Forest 2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mask Forest_0
+      name: Mask_Forest 2_0
       rect:
         serializedVersion: 2
-        x: 97
-        y: 46
-        width: 25
-        height: 29
+        x: 73
+        y: 166
+        width: 262
+        height: 294
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0e1fc7d897f923040800000000000000
-      internalID: 4625935111676555744
+      spriteID: 54de6599244a53be0800000000000000
+      internalID: -1498110695083414203
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Mask Forest_0: 4625935111676555744
+      Mask_Forest 2_0: -1498110695083414203
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
