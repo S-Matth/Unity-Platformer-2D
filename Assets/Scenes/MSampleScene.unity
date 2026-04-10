@@ -1397,11 +1397,9 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
+
   m_LocalPosition: {x: -0.913, y: -0.726, z: -10}
-=======
-  m_LocalPosition: {x: -10.41, y: 15.19, z: -10}
->>>>>>> 28b15d0c67a85fd7fdb48f354077a115c5e79a38
+
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1845,13 +1843,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 663759125}
   serializedVersion: 2
-<<<<<<< HEAD
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-=======
+
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.41, y: 15.19, z: -10}
->>>>>>> 28b15d0c67a85fd7fdb48f354077a115c5e79a38
+
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -68811,26 +68806,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-=======
-    - target: {fileID: 1495149811713174814, guid: 3d44b9dffcbd3734abdda70530f09ddb, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5881989212884458427, guid: 3d44b9dffcbd3734abdda70530f09ddb, type: 3}
-      propertyPath: sceneIndex
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7527725422757835138, guid: 3d44b9dffcbd3734abdda70530f09ddb, type: 3}
-      propertyPath: m_Name
-      value: portail_desert
-      objectReference: {fileID: 0}
->>>>>>> 28b15d0c67a85fd7fdb48f354077a115c5e79a38
+
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-<<<<<<< HEAD
+
   m_SourcePrefab: {fileID: 100100000, guid: baaee3e2be0cb6a4ca337f147bd857fc, type: 3}
 =======
   m_SourcePrefab: {fileID: 100100000, guid: 3d44b9dffcbd3734abdda70530f09ddb, type: 3}
@@ -68918,7 +68899,7 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1194732976}
   m_SourcePrefab: {fileID: 100100000, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
->>>>>>> 28b15d0c67a85fd7fdb48f354077a115c5e79a38
+
 --- !u!1001 &6889221693456322133
 PrefabInstance:
   m_ObjectHideFlags: 0
