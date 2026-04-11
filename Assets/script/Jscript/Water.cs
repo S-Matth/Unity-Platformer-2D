@@ -1,5 +1,8 @@
 using UnityEngine;
 
+
+// mettre ce script sur les case avec le tag Water
+// le WalkWater est a équipé sur le Player
 public class WaterWalk : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
