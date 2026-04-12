@@ -1,43 +1,35 @@
 using UnityEngine;
 
-public class WaterZone : MonoBehaviour
+
+// mettre ce script sur les case avec le tag Water
+// le WalkWater est a équipé sur le Player
+public class WaterWalk : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(" Collision eau avec : " + collision.name);
-
-        if (!collision.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
-            Debug.Log(" Pas le player");
-            return;
-        }
+            PlayerInventory inventory = collision.GetComponentInParent<PlayerInventory>();
 
-        PlayerMaskTest player = collision.GetComponentInParent<PlayerMaskTest>();
-
-        if (player == null)
-        {
-            Debug.Log(" Script PlayerMaskTest introuvable");
-            return;
-        }
-
-        if (player.hasMaskWater)
-        {
-            Debug.Log(" MASQUE DETECTÉ = NAGE");
-
-            Rigidbody2D rb = collision.GetComponentInParent<Rigidbody2D>();
-            if (rb != null)
+            if (inventory != null && inventory.hasMask)
             {
-                rb.gravityScale = 0.5f;
-                Debug.Log(" Gravité réduite");
+                // Le joueur a le masque = il peut marcher sur l'eau
+                Physics2D.IgnoreCollision(collision, GetComponent<Collider2D>(), true);
             }
             else
             {
-                Debug.Log(" Rigidbody introuvable");
+                // Pas de masque = comportement normal 
+                Debug.Log("Le joueur tombe dans l'eau !");
             }
         }
-        else
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
         {
-            Debug.Log(" PAS DE MASQUE = VOID");
+            // Réactive la collision quand il sort de l'eau
+            Physics2D.IgnoreCollision(collision, GetComponent<Collider2D>(), false);
         }
     }
 }
