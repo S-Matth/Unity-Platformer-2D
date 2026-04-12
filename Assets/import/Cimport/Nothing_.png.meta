@@ -1,0 +1,351 @@
+fileFormatVersion: 2
+guid: cfb1c38d8e480f7468e616b04323ed50
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5215947516259941464
+    second: Nothing__0
+  - first:
+      213: -2884726149924461827
+    second: Nothing__1
+  - first:
+      213: -3294277947415885954
+    second: Nothing__2
+  - first:
+      213: 672407840624936902
+    second: Nothing__3
+  - first:
+      213: -2636852492266981922
+    second: Nothing__4
+  - first:
+      213: -7697175260040875730
+    second: Nothing__5
+  - first:
+      213: -1370536613221179096
+    second: Nothing__6
+  - first:
+      213: -4521372512843131970
+    second: Nothing__7
+  - first:
+      213: 3153285244449069401
+    second: Nothing__8
+  - first:
+      213: 6713788070778702496
+    second: Nothing__9
+  - first:
+      213: 5893455020906695479
+    second: Nothing__10
+  - first:
+      213: 2905115145972986491
+    second: Nothing__11
+  - first:
+      213: 109125322168886781
+    second: Nothing__12
+  - first:
+      213: -7102329530563605646
+    second: Nothing__13
+  - first:
+      213: 5761474775963613646
+    second: Nothing__14
+  - first:
+      213: -4051441286565325337
+    second: Nothing__15
+  - first:
+      213: 4797567374977949667
+    second: Nothing__16
+  - first:
+      213: -1132824493884739854
+    second: Nothing__17
+  - first:
+      213: 7380775136147205541
+    second: Nothing__18
+  - first:
+      213: -4702188028578613769
+    second: Nothing__19
+  - first:
+      213: 2323793370310623335
+    second: Nothing__20
+  - first:
+      213: -5356508817004546681
+    second: Nothing__21
+  - first:
+      213: -1145041266280899588
+    second: Nothing__22
+  - first:
+      213: 7475371516011371580
+    second: Nothing__23
+  - first:
+      213: 2014028918936727443
+    second: Nothing__24
+  - first:
+      213: -5200106809286093026
+    second: Nothing__25
+  - first:
+      213: 5592490826276126515
+    second: Nothing__26
+  - first:
+      213: 6786199599300914141
+    second: Nothing__27
+  - first:
+      213: -469308541591128117
+    second: Nothing__28
+  - first:
+      213: -1571195273468031438
+    second: Nothing__29
+  - first:
+      213: 3509691304505372150
+    second: Nothing__30
+  - first:
+      213: -2948845353549908344
+    second: Nothing__31
+  - first:
+      213: 7201321070150737127
+    second: Nothing__32
+  - first:
+      213: -2924932255670768840
+    second: Nothing__33
+  - first:
+      213: -3809462088794451999
+    second: Nothing__34
+  - first:
+      213: 470644432122568699
+    second: Nothing__35
+  - first:
+      213: 438066540234634423
+    second: Nothing__36
+  - first:
+      213: -4274003683024289592
+    second: Nothing__37
+  - first:
+      213: 4808240075679500410
+    second: Nothing__38
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Nothing__0
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 119
+        width: 93
+        height: 94
+      alignment: 9
+      pivot: {x: 0.49071184, y: 0.5459465}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85c31c971a4c26840800000000000000
+      internalID: 5215947516259941464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nothing__1
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 116
+        width: 117
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df2e87fb9d467f7d0800000000000000
+      internalID: -2884726149924461827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nothing__2
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 117
+        width: 112
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e778fd029af5842d0800000000000000
+      internalID: -3294277947415885954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nothing__3
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 115
+        width: 114
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c703a45e5fd45900800000000000000
+      internalID: 672407840624936902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nothing__4
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 168
+        width: 121
+        height: 59
+      alignment: 9
+      pivot: {x: 0.5152961, y: 0.48878285}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d05f082954976f4bb6d6d29097bf032
+      internalID: -440223045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 4a49d801b35845a4ab4af21c011aeb45
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":1.0},"gridSpriteSize":{"x":153.0,"y":408.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Nothing__0: 5215947516259941464
+      Nothing__1: -2884726149924461827
+      Nothing__2: -3294277947415885954
+      Nothing__3: 672407840624936902
+      Nothing__4: -440223045
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
