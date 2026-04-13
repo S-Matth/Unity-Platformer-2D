@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Portal1 : MonoBehaviour
+public class Portal : MonoBehaviour
 {
     [SerializeField] private string targetScene;
     [SerializeField] private string targetSpawnId;
