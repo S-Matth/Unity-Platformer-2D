@@ -16,8 +16,8 @@ public class VoidKill : MonoBehaviour
 
         // si Player tombe dans le void il perd un coeur et est teletransporté au derniere chekcpoint
         if (collision.CompareTag("Player"))
-        {    
-            
+        {
+            Debug.Log("contact void");
             if (playerLife.currentLives == 0)
             {
                 respawn.MainRespawn();
