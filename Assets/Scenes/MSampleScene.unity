@@ -766,11 +766,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2000551972272933095, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.87
+      value: -10.39
       objectReference: {fileID: 0}
     - target: {fileID: 2000551972272933095, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.71
+      value: 15.49
       objectReference: {fileID: 0}
     - target: {fileID: 2000551972272933095, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
       propertyPath: m_LocalPosition.z
@@ -836,10 +836,7 @@ PrefabInstance:
       addedObject: {fileID: 2010421943}
     - targetCorrespondingSourceObject: {fileID: 4425955090924034582, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2010421967}
-    - targetCorrespondingSourceObject: {fileID: 4425955090924034582, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2010421968}
+      addedObject: {fileID: 2010421944}
   m_SourcePrefab: {fileID: 100100000, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
 --- !u!4 &162840226 stripped
 Transform:
@@ -1423,7 +1420,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.86, y: 15.16, z: -10}
+  m_LocalPosition: {x: -10.39, y: 15.49, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -63369,19 +63366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e341e7d822225c348a1ff8970138379a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
---- !u!114 &2010421967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 548982835}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d025767dede83f4a84de799438c3bba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerRespawn
---- !u!114 &2010421968
+--- !u!114 &2010421944
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63390,10 +63375,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 548982835}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93f3575545e0ccf49b32725fb8c7a1d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 88137db084cc85044945db95ec0d5d1f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::playerChest
-  mask: {fileID: 76325885}
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInventory
+  hasMask: 0
+  isPressingE: 0
 --- !u!1001 &2015815933
 PrefabInstance:
   m_ObjectHideFlags: 0
