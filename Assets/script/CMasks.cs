@@ -1,5 +1,3 @@
-using UnityEditor.Tilemaps;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
