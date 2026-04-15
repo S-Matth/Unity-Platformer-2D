@@ -15,11 +15,15 @@ public class InventoryUI : MonoBehaviour
     public Image[] slots;
     public ItemUI[] itemDatabase;
 
+    [Header("Slot par défaut")]
+    public Sprite defaultSlotSprite; //  image ici dans l'Inspector
+
     private bool isOpen = false;
 
     void Start()
     {
-        inventoryPanel.SetActive(false);
+        inventoryPanel.SetActive(true);//inventaire allumer par defaut 
+        ApplyDefaultSprites(); //  Appliquer image par défaut au démarrage
     }
 
     void Update()
@@ -28,9 +32,17 @@ public class InventoryUI : MonoBehaviour
         {
             isOpen = !isOpen;
             inventoryPanel.SetActive(isOpen);
-
             if (isOpen)
                 UpdateUI();
+        }
+    }
+
+    void ApplyDefaultSprites()
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            slots[i].sprite = defaultSlotSprite;
+            slots[i].color = Color.white;
         }
     }
 
@@ -47,24 +59,35 @@ public class InventoryUI : MonoBehaviour
         {
             string item = Inventory.instance.items[i];
 
-            // ✅ IsNullOrEmpty, compatible avec string[]
             if (!string.IsNullOrEmpty(item))
             {
-                slots[i].sprite = GetSprite(item);
-                slots[i].color = Color.white;
+                Sprite icon = GetSprite(item);
+                if (icon != null)
+                {
+                    slots[i].sprite = icon; // Affiche l'icône de l'item
+                    slots[i].color = Color.white;
+                }
+                else
+                {
+                    slots[i].sprite = defaultSlotSprite; // fallback si sprite manquant
+                    slots[i].color = Color.white;
+                }
             }
             else
             {
-                slots[i].sprite = null;
-                slots[i].color = new Color(1, 1, 1, 0);
+                slots[i].sprite = defaultSlotSprite; //  Slot vide = image par défaut
+                slots[i].color = Color.white;
             }
         }
     }
 
+    
     Sprite GetSprite(string itemName)
     {
+        Debug.Log("Recherche sprite pour : '" + itemName + "' - DB size: " + itemDatabase.Length);
         foreach (ItemUI item in itemDatabase)
         {
+            Debug.Log("Comparaison : '" + item.itemName + "' == '" + itemName + "' ? " + (item.itemName == itemName));
             if (item.itemName == itemName)
                 return item.icon;
         }
