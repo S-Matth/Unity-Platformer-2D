@@ -316,6 +316,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2181102954130754435, guid: 1ac7e5e9535e0f6409f99768caf4c0e6, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 2181102954130754435, guid: 1ac7e5e9535e0f6409f99768caf4c0e6, type: 3}
       propertyPath: m_Name
       value: Spawn_Enter_Jungle
       objectReference: {fileID: 0}
@@ -766,11 +770,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2000551972272933095, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.39
+
+      value: 18.51
       objectReference: {fileID: 0}
     - target: {fileID: 2000551972272933095, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.49
+      value: 11.86
+
       objectReference: {fileID: 0}
     - target: {fileID: 2000551972272933095, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1420,7 +1426,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.39, y: 15.49, z: -10}
+  m_LocalPosition: {x: 18.51, y: 11.86, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2022,6 +2028,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2181102954130754435, guid: 1ac7e5e9535e0f6409f99768caf4c0e6, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 2181102954130754435, guid: 1ac7e5e9535e0f6409f99768caf4c0e6, type: 3}
       propertyPath: m_Name
       value: Spawn_Enter_Sable
@@ -63377,9 +63387,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88137db084cc85044945db95ec0d5d1f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInventory
-  hasMask: 0
-  isPressingE: 0
+  m_EditorClassIdentifier: Assembly-CSharp::playerChest
 --- !u!1001 &2015815933
 PrefabInstance:
   m_ObjectHideFlags: 0
