@@ -1,8 +1,6 @@
 using System.Collections;
 using Unity.Properties;
 using Unity.VisualScripting;
-using UnityEditor.Rendering;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
