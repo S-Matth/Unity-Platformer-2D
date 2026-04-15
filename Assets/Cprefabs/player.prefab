@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 4192438944042116433}
   - component: {fileID: 2294876950206236068}
   - component: {fileID: 2517142396476971213}
+  - component: {fileID: 2383349569071929977}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -647,6 +648,18 @@ MonoBehaviour:
   grappleLayer:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &2383349569071929977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4425955090924034582}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d025767dede83f4a84de799438c3bba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerRespawn
 --- !u!1 &6428782373120802812
 GameObject:
   m_ObjectHideFlags: 0
