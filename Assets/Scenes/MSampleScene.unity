@@ -523,13 +523,14 @@ GameObject:
   m_Component:
   - component: {fileID: 76325884}
   - component: {fileID: 76325883}
+  - component: {fileID: 76325885}
   m_Layer: 0
   m_Name: Mask_Forest 2_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &76325883
 SpriteRenderer:
   serializedVersion: 2
@@ -598,12 +599,24 @@ Transform:
   m_GameObject: {fileID: 76325882}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0038000047, y: 0.08960003, z: 0}
+  m_LocalPosition: {x: -0.0038003922, y: 0.08959961, z: 0}
   m_LocalScale: {x: 0.07168166, y: 0.0718479, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2010421942}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &76325885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76325882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f358d53009720954a9143981796130db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mask
 --- !u!4 &93254692 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6868105016784963347, guid: 3bc0cc696658b4844b8fe3333196497c, type: 3}
@@ -815,7 +828,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2000551972272933095, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
-      insertIndex: 0
+      insertIndex: -1
       addedObject: {fileID: 76325884}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4425955090924034582, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
@@ -824,6 +837,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4425955090924034582, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2010421967}
+    - targetCorrespondingSourceObject: {fileID: 4425955090924034582, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2010421968}
   m_SourcePrefab: {fileID: 100100000, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
 --- !u!4 &162840226 stripped
 Transform:
@@ -63365,6 +63381,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d025767dede83f4a84de799438c3bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerRespawn
+--- !u!114 &2010421968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548982835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93f3575545e0ccf49b32725fb8c7a1d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::playerChest
+  mask: {fileID: 76325885}
 --- !u!1001 &2015815933
 PrefabInstance:
   m_ObjectHideFlags: 0
