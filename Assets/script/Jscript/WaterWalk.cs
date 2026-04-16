@@ -13,7 +13,7 @@ public class WaterWalk : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
-        PlayerInventory inv = other.GetComponent<PlayerInventory>();
+        PlayerMask inv = other.GetComponent<PlayerMask>();
         if (inv == null) return;
 
         Collider2D playerCollider = other.GetComponent<Collider2D>();
