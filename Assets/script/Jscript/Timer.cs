@@ -1,22 +1,45 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class WaterDeath : MonoBehaviour
 {
     public float maxTimeInWater = 30f;
+    public float speedThreshold = 0.1f;
+
+    public Tilemap waterTilemap;
 
     private float timer = 0f;
-    private bool isInWater = false;
 
+    private Rigidbody2D playerRb;
     private PlayerRespawn respawn;
     private CPlayerLife playerLife;
 
+    private void Start()
+    {
+        playerRb = GetComponent<Rigidbody2D>();
+        respawn = GetComponent<PlayerRespawn>();
+        playerLife = GetComponent<CPlayerLife>();
+    }
+
     private void Update()
     {
-        if (!isInWater) return;
+        bool isInWater = IsPlayerOnWater();
 
-        timer += Time.deltaTime;
+        if (!isInWater)
+        {
+            timer = 0f;
+            return;
+        }
 
-        Debug.Log("Timer eau: " + timer);
+        if (playerRb.linearVelocity.magnitude < speedThreshold)
+        {
+            timer += Time.deltaTime;
+            Debug.Log("Timer eau: " + timer);
+        }
+        else
+        {
+            timer = 0f;
+        }
 
         if (timer >= maxTimeInWater)
         {
@@ -29,32 +52,13 @@ public class WaterDeath : MonoBehaviour
 
             playerLife.Damage();
 
-            // reset pour éviter boucle infinie
             timer = 0f;
-            isInWater = false;
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private bool IsPlayerOnWater()
     {
-        if (!collision.CompareTag("Player")) return;
-
-        Debug.Log("Entré dans l'eau");
-
-        isInWater = true;
-        timer = 0f;
-
-        respawn = collision.GetComponentInParent<PlayerRespawn>();
-        playerLife = collision.GetComponentInParent<CPlayerLife>();
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (!collision.CompareTag("Player")) return;
-
-        Debug.Log("Sorti de l'eau");
-
-        isInWater = false;
-        timer = 0f;
+        Vector3Int cellPosition = waterTilemap.WorldToCell(transform.position);
+        return waterTilemap.HasTile(cellPosition);
     }
 }

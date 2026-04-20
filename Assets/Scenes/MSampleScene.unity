@@ -12338,6 +12338,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaterDeath
   maxTimeInWater: 10
+  speedThreshold: 0.1
+  waterTilemap: {fileID: 1496876927}
 --- !u!114 &1496876931
 MonoBehaviour:
   m_ObjectHideFlags: 0
