@@ -2,15 +2,25 @@ using UnityEngine;
 
 public class PlayerMask : MonoBehaviour
 {
-    [Header("Water_Mask")]
-    public bool hasMask = true;
-
     [HideInInspector]
     public bool isPressingE;
 
+    // Calculé automatiquement depuis l'inventaire
+    public bool hasMask => HasMaskInInventory();
+
     private void Update()
     {
-        // Input centralisé ici
         isPressingE = Input.GetKey(KeyCode.E);
+    }
+
+    private bool HasMaskInInventory()
+    {
+        if (Inventory.instance == null) return false;
+
+        foreach (string item in Inventory.instance.items)
+        {
+            if (item == "Mask_Water") return true;
+        }
+        return false;
     }
 }
