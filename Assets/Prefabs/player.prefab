@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 2294876950206236068}
   - component: {fileID: 2517142396476971213}
   - component: {fileID: 2383349569071929977}
+  - component: {fileID: 7849616329958032074}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -660,6 +661,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d025767dede83f4a84de799438c3bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerRespawn
+--- !u!114 &7849616329958032074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4425955090924034582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88137db084cc85044945db95ec0d5d1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMask
+  hasMask: 1
+  isPressingE: 0
 --- !u!1 &6428782373120802812
 GameObject:
   m_ObjectHideFlags: 0
