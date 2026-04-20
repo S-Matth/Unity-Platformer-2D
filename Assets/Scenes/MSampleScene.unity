@@ -1962,11 +1962,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2294876950206236068, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
       propertyPath: m_Anchor.x
-      value: -0.0000000072681132
+      value: 0.00000014642671
       objectReference: {fileID: 0}
     - target: {fileID: 2294876950206236068, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
       propertyPath: m_Anchor.y
-      value: 0.00000022598067
+      value: -0.00000007204255
       objectReference: {fileID: 0}
     - target: {fileID: 2294876950206236068, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
       propertyPath: m_ConnectedAnchor.x
