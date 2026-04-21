@@ -13,31 +13,27 @@ public class WaterWalk : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
-        PlayerMask mask = other.GetComponent<PlayerMask>();
-        Timer waterDeath = other.GetComponent<Timer>();
+        PlayerMask inv = other.GetComponent<PlayerMask>();
+        if (inv == null) return;
+
         Collider2D playerCollider = other.GetComponent<Collider2D>();
 
-        if (mask == null || waterDeath == null || playerCollider == null) return;
-
-        // CAS 1 : pas de masque => tombe dans l'eau
-        if (!mask.hasWaterMask)
+        //  CAS 1 : PAS de masque = on tombe
+        if (!inv.hasWaterMask)
         {
             Physics2D.IgnoreCollision(playerCollider, waterCollider, true);
-            waterDeath.SetInWater(true);
             return;
         }
 
-        // CAS 2 : masque + E => traverse, donc dans l'eau
-        if (mask.isPressingE)
+        //  CAS 2 : Masque + touche E =on traverse
+        if (inv.isPressingE)
         {
             Physics2D.IgnoreCollision(playerCollider, waterCollider, true);
-            waterDeath.SetInWater(true);
         }
         else
         {
-            // CAS 3 : masque sans E => marche SUR l'eau, donc pas "dans" l'eau
+            //  CAS 3 : Masque sans E = on marche sur l'eau
             Physics2D.IgnoreCollision(playerCollider, waterCollider, false);
-            waterDeath.SetInWater(false);
         }
     }
 
@@ -46,12 +42,8 @@ public class WaterWalk : MonoBehaviour
         if (!other.CompareTag("Player")) return;
 
         Collider2D playerCollider = other.GetComponent<Collider2D>();
-        Timer waterDeath = other.GetComponent<Timer>();
 
-        if (playerCollider != null)
-            Physics2D.IgnoreCollision(playerCollider, waterCollider, false);
-
-        if (waterDeath != null)
-            waterDeath.SetInWater(false);
+        // Reset sécurité
+        Physics2D.IgnoreCollision(playerCollider, waterCollider, false);
     }
 }
