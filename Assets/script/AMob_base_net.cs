@@ -12,7 +12,8 @@ public class Mob_base_net: MonoBehaviour
 
     [Header("Detection")]
     public float detectionRange = 2f;
-    public Transform player;
+    //public Transform player;
+    private GameObject Player;
 
     [Header("Attack")]
     public GameObject fireballPrefab;
@@ -26,11 +27,12 @@ public class Mob_base_net: MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
     {
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        float distanceToPlayer = Vector2.Distance(transform.position, Player.transform.position);
 
         if (distanceToPlayer <= detectionRange)
         {
@@ -78,9 +80,9 @@ public class Mob_base_net: MonoBehaviour
         rb.linearVelocity = Vector2.zero;
 
         // Regarder le joueur
-        if (player.position.x > transform.position.x && !movingRight)
+        if (Player.transform.position.x > transform.position.x && !movingRight)
             Flip();
-        else if (player.position.x < transform.position.x && movingRight)
+        else if (Player.transform.position.x < transform.position.x && movingRight)
             Flip();
 
         if (Time.time >= nextFireTime)

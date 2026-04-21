@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &4069748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -628,7 +628,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &307059520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1052,7 +1052,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &713076469
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1096,7 +1096,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1.5
+  orthographic size: 1.1772487
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -12252,7 +12252,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   detectionRange: 5
-  player: {fileID: 2083742516}
   fireballPrefab: {fileID: 7503640745399629756, guid: 8153f65dc0a1c884b9bbb822d8add43b, type: 3}
   firePoint: {fileID: 2099718741}
   fireRate: 1.5
@@ -12542,7 +12541,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1931653887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12674,7 +12673,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   detectionRange: 5
-  player: {fileID: 2083742516}
   fireballPrefab: {fileID: 7503640745399629756, guid: 8153f65dc0a1c884b9bbb822d8add43b, type: 3}
   firePoint: {fileID: 282300371}
   fireRate: 1.5
@@ -13059,7 +13057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4425955090924034582, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
