@@ -2325,10 +2325,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 356053654}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000012398, y: 0.0000038147}
-  m_SizeDelta: {x: 922, y: 448.2}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 72, y: 76.20001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1030452199
 MonoBehaviour:
@@ -3035,6 +3035,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   audioMixer: {fileID: 24100000, guid: 3c4fb94fb530c4443abb0e6fadcc81d6, type: 2}
   resolutionDropdown: {fileID: 1422090633}
+  videoBackground: {fileID: 1030452199}
 --- !u!114 &1381379634
 MonoBehaviour:
   m_ObjectHideFlags: 0

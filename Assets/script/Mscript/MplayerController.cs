@@ -13,7 +13,7 @@ public class playerController : MonoBehaviour
     [SerializeField] private TrailRenderer tr;
     [SerializeField] private LayerMask lmGround;
     [SerializeField] private LayerMask lmWall;
- 
+
 
     // Variable Move
     private Rigidbody2D rb;
@@ -23,6 +23,7 @@ public class playerController : MonoBehaviour
     // Variable Jump
     public SpriteRenderer sp;
     private bool isGrounded;
+    private bool wasGrounded; // AJOUT
     private Transform groundCheck;
     private float maxJump = 2;
     private float cptJump = 0;
@@ -33,7 +34,7 @@ public class playerController : MonoBehaviour
 
     // Variable wallJump
     private float wallJumpTimer;
-    
+
     private Vector2 wallJumpDirection = new Vector2(1f, 1.5f);
     private float wallJumpDuration = 0.2f;
     private bool isWallJumping;
@@ -54,20 +55,23 @@ public class playerController : MonoBehaviour
     // Récupération du masque pour vérifier si le joueur a le dash
     private PlayerMask mask;
 
+    // AJOUT : Variable Sons
+    private PlayerSounds playerSounds;
+
     private void Awake()
     {
-        rb= GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         mask = GetComponent<PlayerMask>();
         sp = GetComponent<SpriteRenderer>();
         groundCheck = transform.Find("GroundCheck");
         wallCheck = transform.Find("WallCheck");
-
+        playerSounds = GetComponent<PlayerSounds>(); // AJOUT
     }
 
     private void Update()
     {
-        // Met à jour l’orientation du sprite
+        // Met à jour l'orientation du sprite
         OrientationCharactere();
 
         // Effet de poussière lors de la course
@@ -78,11 +82,13 @@ public class playerController : MonoBehaviour
         IsWalled();
 
         // Gestion des animations du personnage
-        GestionAnimation(); 
+        GestionAnimation();
 
         // Gestion du wall slide
         WallSlide();
         HandleWallJumpTimer();
+
+        playerSounds.HandleFootstep(isGrounded, moveInput.x); // AJOUT
     }
 
     private void FixedUpdate()
@@ -91,11 +97,11 @@ public class playerController : MonoBehaviour
         if (isDashing) return;
 
         // Si le joueur n'est pas en wall jump, on applique le mouvement horizontal
-        if (!isWallJumping) 
+        if (!isWallJumping)
             rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocityY);
 
     }
-    
+
     private void HandleRunDust()
     {
         // Active la poussière si le joueur court au sol
@@ -118,12 +124,15 @@ public class playerController : MonoBehaviour
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, lmGround);
 
-        // Si on vient d’atterrir, on réinitialise le compteur de sauts
-        if (isGrounded && !wasGrounded) 
+        // Si on vient d'atterrir, on réinitialise le compteur de sauts
+        if (isGrounded && !wasGrounded)
+        {
             cptJump = 0;
+            playerSounds.PlayLand(); // AJOUT
+        }
     }
 
-    private bool IsWalled() => 
+    private bool IsWalled() =>
         Physics2D.OverlapCircle(wallCheck.position, 0.05f, lmWall); // Détection du mur
 
     private void WallSlide()
@@ -135,13 +144,13 @@ public class playerController : MonoBehaviour
             return;
         }
 
-        // Conditions du wall slide : contre un mur, en l’air, et en mouvement horizontal
+        // Conditions du wall slide : contre un mur, en l'air, et en mouvement horizontal
         if (IsWalled() && !isGrounded && moveInput.x != 0)
         {
             isWallSliding = true;
 
-            // On limite la vitesse verticale pour créer l’effet de glissade
-            rb.linearVelocity = new Vector2(rb.linearVelocityX, Mathf.Clamp(rb.linearVelocityY, -wallSlidingSpeed, float.MaxValue)); 
+            // On limite la vitesse verticale pour créer l'effet de glissade
+            rb.linearVelocity = new Vector2(rb.linearVelocityX, Mathf.Clamp(rb.linearVelocityY, -wallSlidingSpeed, float.MaxValue));
         }
         else
         {
@@ -176,7 +185,7 @@ public class playerController : MonoBehaviour
 
     public void OrientationCharactere()
     {
-        // Met à jour la direction du personnage selon l’input
+        // Met à jour la direction du personnage selon l'input
         if (moveInput.x != 0)
             lastXDirection = Mathf.Sign(moveInput.x);
 
@@ -205,8 +214,8 @@ public class playerController : MonoBehaviour
             wallJumpDirection.y * wallJumpForce);
     }
 
-    private void OnMove(InputValue value) => 
-        moveInput = value.Get<Vector2>(); // Récupère l’input du joueur
+    private void OnMove(InputValue value) =>
+        moveInput = value.Get<Vector2>(); // Récupère l'input du joueur
 
     private void OnJump(InputValue value)
     {
@@ -217,6 +226,7 @@ public class playerController : MonoBehaviour
             {
                 rb.linearVelocityY = jumpForce;
                 cptJump++;
+                playerSounds.PlayJump(); // AJOUT
             }
 
             // Double saut
@@ -224,6 +234,7 @@ public class playerController : MonoBehaviour
             {
                 rb.linearVelocityY = jumpForce;
                 cptJump++;
+                playerSounds.PlayDoubleJump(); // AJOUT
             }
 
             // Wall jump
@@ -231,8 +242,9 @@ public class playerController : MonoBehaviour
             {
                 cptJump = 2;
                 WallJump();
+                playerSounds.PlayWallJump(); // AJOUT
             }
-        }   
+        }
     }
 
     private IEnumerator OnDash(InputValue value)
@@ -253,6 +265,7 @@ public class playerController : MonoBehaviour
 
         // On applique la vitesse de dash dans la direction du personnage
         rb.linearVelocity = new Vector2(lastXDirection * dashPower, 0f);
+        playerSounds.PlayDash(); // AJOUT
 
         // On active l'effet de traînée du dash
         tr.emitting = true;
@@ -271,5 +284,12 @@ public class playerController : MonoBehaviour
         // Cooldown avant de pouvoir dash à nouveau
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
+    }
+
+    // AJOUT : Appelle cette méthode depuis ton script de mort
+    public void Die()
+    {
+        playerSounds.PlayDeath();
+        // ... ta logique de mort ici
     }
 }

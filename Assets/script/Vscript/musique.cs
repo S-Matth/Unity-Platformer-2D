@@ -13,6 +13,5 @@ public class MusicManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject); // Survit au changement de scène
     }
 }
