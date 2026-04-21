@@ -4,10 +4,11 @@ using System.Collections;
 public class Boss : MonoBehaviour
 {
     public int health = 3;
-    public Transform player;
+    //public Transform player;
     public float speed = 2f;
     public float jumpForce = 6f;
-    public float aggroRange = 5f;        // Distance de détection
+    public float aggroRange = 5f;// Distance de détection
+    private GameObject Player;
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -18,13 +19,15 @@ public class Boss : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        Player = GameObject.FindGameObjectWithTag("Player");
+
     }
 
     void Update()
     {
-        if (player == null) return;
+        if (Player == null) return;
 
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        float distanceToPlayer = Vector2.Distance(transform.position, Player.transform.position);
 
         //  Le boss ne réagit que si le joueur est proche
         if (distanceToPlayer <= aggroRange)
@@ -42,7 +45,7 @@ public class Boss : MonoBehaviour
 
     void Flip()
     {
-        if (player.position.x > transform.position.x)
+        if (Player.transform.position.x > transform.position.x)
             transform.localScale = new Vector3(1, 1, 1);
         else
             transform.localScale = new Vector3(-1, 1, 1);
@@ -50,7 +53,7 @@ public class Boss : MonoBehaviour
 
     void JumpToPlayer()
     {
-        Vector2 direction = (player.position - transform.position).normalized;
+        Vector2 direction = (Player.transform.position - transform.position).normalized;
         rb.linearVelocity = new Vector2(direction.x * speed, jumpForce);
     }
 
@@ -110,4 +113,5 @@ public class Boss : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, aggroRange);
     }
+
 }
