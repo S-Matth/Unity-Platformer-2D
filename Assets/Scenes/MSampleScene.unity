@@ -1459,11 +1459,11 @@ MonoBehaviour:
   - {fileID: 1363668419}
   - {fileID: 1684163534}
   itemDatabase:
-  - itemName: Mask
+  - itemName: Dash_Mask
     icon: {fileID: 523445417289559624, guid: a271e235d38001e4cbd5385fc1d0c797, type: 3}
-  - itemName: Mask_Foret
+  - itemName: Grapin_Mask
     icon: {fileID: -1498110695083414203, guid: 08e8b9314858d404aa9acff824105e3d, type: 3}
-  - itemName: Mask_Water
+  - itemName: Water_Mask
     icon: {fileID: -4080367175304257540, guid: 1cdac0cf2bc82f547afc3a9e454832d9, type: 3}
   defaultSlotSprite: {fileID: -7368508156005480852, guid: cc4f2f3c6d6edf547b39a55a74745d9c, type: 3}
 --- !u!114 &495902868
@@ -1496,6 +1496,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PickupItem
   itemName: 
   pressEUI: {fileID: 0}
+--- !u!114 &495902883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495902851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c04c8a9269b5734dba85b234da75378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaterDeath
+  maxTimeInWater: 30
+  speedThreshold: 0.1
+  noMaskDeathDelay: 0.5
+  waterTilemap: {fileID: 1496876927}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1630,7 +1646,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.63, y: 5.78, z: -10}
+  m_LocalPosition: {x: -0.9155, y: -0.5939, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2450,11 +2466,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2000551972272933095, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.1202
+      value: 1.0235268
       objectReference: {fileID: 0}
     - target: {fileID: 2000551972272933095, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.1202
+      value: 0.97076535
       objectReference: {fileID: 0}
     - target: {fileID: 2000551972272933095, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
       propertyPath: m_LocalScale.z
@@ -2462,11 +2478,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2000551972272933095, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.63
+      value: -0.9155
       objectReference: {fileID: 0}
     - target: {fileID: 2000551972272933095, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.78
+      value: -0.5939
       objectReference: {fileID: 0}
     - target: {fileID: 2000551972272933095, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2520,6 +2536,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3768310941171479424, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
+      propertyPath: m_Size.y
+      value: 0.29229254
+      objectReference: {fileID: 0}
+    - target: {fileID: 3768310941171479424, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0042489474
+      objectReference: {fileID: 0}
+    - target: {fileID: 3768310941171479424, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.005355568
+      objectReference: {fileID: 0}
     - target: {fileID: 4425955090924034582, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
       propertyPath: m_Name
       value: player
@@ -2530,6 +2558,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7849616329958032074, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
       propertyPath: hasMask
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8260248090372911781, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
+      propertyPath: canSwim
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2548,6 +2580,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4425955090924034582, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
       insertIndex: -1
       addedObject: {fileID: 495902867}
+    - targetCorrespondingSourceObject: {fileID: 4425955090924034582, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 495902883}
   m_SourcePrefab: {fileID: 100100000, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
 --- !u!4 &702743430 stripped
 Transform:
@@ -5007,7 +5042,7 @@ GameObject:
   - component: {fileID: 1496876930}
   - component: {fileID: 1496876932}
   m_Layer: 4
-  m_Name: TileWater
+  m_Name: WaterTilemap
   m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12989,13 +13024,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1496876924}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c04c8a9269b5734dba85b234da75378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaterDeath
   maxTimeInWater: 10
   speedThreshold: 0.1
+  noMaskDeathDelay: 0.5
   waterTilemap: {fileID: 1496876927}
 --- !u!114 &1496876931
 MonoBehaviour:

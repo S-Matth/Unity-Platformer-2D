@@ -16,10 +16,14 @@ public class MGrappin_Joueur : MonoBehaviour
     // Point d'accroche du grappin
     private Vector3 grapplePoint;
 
+    // Récupération du masque
+    private PlayerMask mask;
+
     void Start()
     {
         // Récupération des composants nécessaires
         //rb = GetComponent<Rigidbody2D>();
+        mask = GetComponent<PlayerMask>();
         lr = GetComponent<LineRenderer>();
         dj = GetComponent<DistanceJoint2D>();
 
@@ -31,6 +35,10 @@ public class MGrappin_Joueur : MonoBehaviour
 
     void Update()
     {
+        if (!mask.hasGrapinMask)
+        {
+            return;
+        }
         // Quand on clique avec la souris, on tente de lancer le grappin
         if (Input.GetMouseButtonDown(0))
         {

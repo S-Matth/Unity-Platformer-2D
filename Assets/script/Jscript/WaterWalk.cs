@@ -19,7 +19,7 @@ public class WaterWalk : MonoBehaviour
         Collider2D playerCollider = other.GetComponent<Collider2D>();
 
         //  CAS 1 : PAS de masque = on tombe
-        if (!inv.hasMask)
+        if (!inv.hasWaterMask)
         {
             Physics2D.IgnoreCollision(playerCollider, waterCollider, true);
             return;

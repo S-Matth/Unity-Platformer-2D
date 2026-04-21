@@ -7,9 +7,6 @@ using UnityEngine.U2D;
 
 public class CPlayerLife : MonoBehaviour
 {
-    // ajouté par matthias, pour savoir si le player peut nager ou pas, et ainsi faire en sorte que s'il tombe dans l'eau, il meurt ou pas
-    [SerializeField] public bool canSwim;
-
     public int maxLives = 5;
     public int currentLives;
 

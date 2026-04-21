@@ -51,10 +51,14 @@ public class playerController : MonoBehaviour
     // Variable FX pour gérer les particules
     public ParticleSystem smokeFX;
 
+    // Récupération du masque pour vérifier si le joueur a le dash
+    private PlayerMask mask;
+
     private void Awake()
     {
         rb= GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        mask = GetComponent<PlayerMask>();
         sp = GetComponent<SpriteRenderer>();
         groundCheck = transform.Find("GroundCheck");
         wallCheck = transform.Find("WallCheck");
@@ -233,36 +237,39 @@ public class playerController : MonoBehaviour
 
     private IEnumerator OnDash(InputValue value)
     {
-        if (value.isPressed)
-        {
-            // Empêche le spam du dash
-            canDash = false;
-            isDashing = true;
+        if (!mask.hasDashMask)
+            yield break;
 
-            // On désactive la gravité pendant le dash
-            float originalGravity = rb.gravityScale;
-            rb.gravityScale = 0f;
+        if (!value.isPressed)
+            yield break;
 
-            // On applique la vitesse de dash dans la direction du personnage
-            rb.linearVelocity = new Vector2(lastXDirection * dashPower, 0f);
+        // Empêche le spam du dash
+        canDash = false;
+        isDashing = true;
 
-            // On active l'effet de traînée du dash
-            tr.emitting = true;
+        // On désactive la gravité pendant le dash
+        float originalGravity = rb.gravityScale;
+        rb.gravityScale = 0f;
 
-            // On attend la durée du dash
-            yield return new WaitForSeconds(dashDuration);
+        // On applique la vitesse de dash dans la direction du personnage
+        rb.linearVelocity = new Vector2(lastXDirection * dashPower, 0f);
 
-            // On désactive l'effet de traînée et on rétablit la gravité initiale
-            tr.emitting = false;
-            rb.gravityScale = originalGravity;
+        // On active l'effet de traînée du dash
+        tr.emitting = true;
 
-            // On réinitialise les variables de dash
-            // Fin du dash
-            isDashing = false;
+        // On attend la durée du dash
+        yield return new WaitForSeconds(dashDuration);
 
-            // Cooldown avant de pouvoir dash à nouveau
-            yield return new WaitForSeconds(dashCooldown);
-            canDash = true;
-        }
+        // On désactive l'effet de traînée et on rétablit la gravité initiale
+        tr.emitting = false;
+        rb.gravityScale = originalGravity;
+
+        // On réinitialise les variables de dash
+        // Fin du dash
+        isDashing = false;
+
+        // Cooldown avant de pouvoir dash à nouveau
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
     }
 }
