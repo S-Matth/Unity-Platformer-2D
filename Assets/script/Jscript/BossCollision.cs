@@ -16,7 +16,7 @@ public class BossCollision : MonoBehaviour
         Rigidbody2D playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
 
         // Vérifie si le joueur est au-dessus du boss (attaque sur la tête)
-        /*if (collision.transform.position.y > transform.position.y + 0.3f)
+        if (collision.transform.position.y > transform.position.y + 0.3f)
         {
             boss.TakeDamage();
 
@@ -31,15 +31,6 @@ public class BossCollision : MonoBehaviour
             //Destroy(collision.gameObject);
             playerLife.Die();
             Debug.Log("Le joueur est mort !");
-        }*/
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    { 
-        if (collision.CompareTag("Player"))
-        {
-            boss.TakeDamage();
         }
     }
-
 }

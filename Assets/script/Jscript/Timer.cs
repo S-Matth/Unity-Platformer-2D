@@ -65,6 +65,7 @@ public class WaterDeath : MonoBehaviour
         if (timer >= maxTimeInWater)
         {
             KillPlayer();
+
             timer = 0f;
         }
     }

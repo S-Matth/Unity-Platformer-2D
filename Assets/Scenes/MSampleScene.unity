@@ -1540,9 +1540,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c04c8a9269b5734dba85b234da75378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaterDeath
-  maxTimeInWater: 30
-  speedThreshold: 0.1
-  noMaskDeathDelay: 0.5
+  maxTimeInWater: 10
+  speedThreshold: 1
+  noMaskDeathDelay: 1
   waterTilemap: {fileID: 1496876927}
 --- !u!1 &519420028
 GameObject:
@@ -1678,7 +1678,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.38, y: 12.42, z: -10}
+  m_LocalPosition: {x: -10.5, y: 15.37, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2510,11 +2510,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2000551972272933095, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.38
+      value: -10.5
       objectReference: {fileID: 0}
     - target: {fileID: 2000551972272933095, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.42
+      value: 15.37
       objectReference: {fileID: 0}
     - target: {fileID: 2000551972272933095, guid: 2c6ce1e86db70c044babe218a2211393, type: 3}
       propertyPath: m_LocalPosition.z
