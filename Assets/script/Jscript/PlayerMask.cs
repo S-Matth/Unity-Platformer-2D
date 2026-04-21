@@ -22,7 +22,7 @@ public class PlayerMask : MonoBehaviour
 
     // Méthode pour vérifier la présence des masques dans l'inventaire et mettre à jour les variables correspondantes
     private void HasMaskInInventory()
-    { 
+    {
         if (Inventory.instance == null) return;
 
         string[] items = Inventory.instance.items;

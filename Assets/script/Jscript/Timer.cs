@@ -1,99 +1,104 @@
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
-public class WaterDeath : MonoBehaviour
+public class Timer: MonoBehaviour
 {
-    public float maxTimeInWater = 30f;
-    public float speedThreshold = 0.1f; 
-    public float noMaskDeathDelay = 0.1f; // Délai avant la mort pour les joueurs sans masque de nage
+    [Header("Réglages")]
+    public float stopTimeBeforeDeath = 3f;
+    public float speedThreshold = 0.1f;
+    public float noMaskDeathDelay = 0.1f;
+    public float deathCooldown = 1f; // empêche la boucle après respawn
 
-    public Tilemap waterTilemap;
-
-    private float timer = 0f;
-    private bool pendingDeath = false;
-
-    private Rigidbody2D playerRb;
-    private PlayerRespawn respawn;
+    private Rigidbody2D rb;
     private CPlayerLife playerLife;
-    private PlayerMask mask;
+    private PlayerMask playerMask;
+
+    private bool isReallyInWater = false;
+    private bool isDying = false;
+    private float timer;
+    private float cooldownTimer = 0f;
 
     private void Start()
     {
-        playerRb = GetComponent<Rigidbody2D>();
-        respawn = GetComponent<PlayerRespawn>();
+        rb = GetComponent<Rigidbody2D>();
         playerLife = GetComponent<CPlayerLife>();
-        mask = GetComponent<PlayerMask>();
+        playerMask = GetComponent<PlayerMask>();
 
-        if (waterTilemap == null)
-            waterTilemap = GameObject.Find("WaterTilemap").GetComponent<Tilemap>();
+        ForceResetState();
     }
 
     private void Update()
     {
-        bool isInWater = IsPlayerOnWater();
-
-        if (!isInWater)
+        if (cooldownTimer > 0f)
         {
-            timer = 0f;
-            pendingDeath = false;
+            cooldownTimer -= Time.deltaTime;
             return;
         }
-        Debug.Log("etat du mask: " + mask);
 
-        // Cas 1 où le joueur n'a pas de masque de l'eau : mort instantanée après un court délai
-        if (!mask.hasWaterMask)
+        if (isDying)
+            return;
+
+        if (!isReallyInWater)
         {
-            if(!pendingDeath)
+            timer = stopTimeBeforeDeath;
+            return;
+        }
+
+        if (!playerMask.hasWaterMask)
+        {
+            KillNow();
+            return;
+        }
+
+        float speed = rb.linearVelocity.magnitude;
+
+        if (speed <= speedThreshold)
+        {
+            timer -= Time.deltaTime;
+            Debug.Log("Timer restant: " + timer);
+
+            if (timer <= 0f)
             {
-                pendingDeath = true;
-                Invoke(nameof(InstantKill), noMaskDeathDelay);
+                KillNow();
             }
-            return;
-        }
-
-        // Cas 2 où le joueur a un masque de l'eau -> système normal
-        if (playerRb.linearVelocity.magnitude < speedThreshold)
-        {
-            timer += Time.deltaTime;
-            Debug.Log("Timer eau: " + timer);
         }
         else
         {
-            timer = 0f;
-        }
-
-        if (timer >= maxTimeInWater)
-        {
-            KillPlayer();
-
-            timer = 0f;
+            timer = stopTimeBeforeDeath;
         }
     }
 
-    private bool IsPlayerOnWater()
+    public void SetInWater(bool value)
     {
-        if(waterTilemap == null) 
-            return false;
-        
-        Vector3Int cellPosition = waterTilemap.WorldToCell(transform.position);
-        return waterTilemap.HasTile(cellPosition);
+        if (isDying) return;
+        if (cooldownTimer > 0f) return;
+
+        isReallyInWater = value;
+
+        if (!value)
+            timer = stopTimeBeforeDeath;
     }
 
-    private void InstantKill()
+    public void ForceResetState()
     {
-        if(pendingDeath)
-            KillPlayer();
+        isReallyInWater = false;
+        isDying = false;
+        timer = stopTimeBeforeDeath;
+        cooldownTimer = deathCooldown;
+        CancelInvoke();
     }
 
-    private void KillPlayer()
+    private void KillNow()
     {
-        Debug.Log("Mort par noyade");
+        if (isDying) return;
 
-        if (playerLife.currentLives == 0)
-            respawn.MainRespawn();
-        else
-            respawn.Respawn();
+        isDying = true;
+        isReallyInWater = false;
+        timer = stopTimeBeforeDeath;
+        cooldownTimer = deathCooldown;
+        CancelInvoke();
 
-        playerLife.Damage();
+        playerLife.Die();
+
+        isDying = false;
     }
 }
