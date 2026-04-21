@@ -673,8 +673,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88137db084cc85044945db95ec0d5d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMask
-  hasMask: 1
   isPressingE: 0
+  hasWaterMask: 0
+  hasGrapinMask: 0
+  hasDashMask: 0
 --- !u!1 &6428782373120802812
 GameObject:
   m_ObjectHideFlags: 0
